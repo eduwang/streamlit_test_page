@@ -7,13 +7,14 @@ if "messages" not in st.session_state:
 for m in st.session_state.messages:
     with st.chat_message(m["role"]):
         st.write(m["content"])
+api_key = st.secrets["openai"]["api_key"]
 
 if prompt := st.chat_input("질문을 입력하세요."):
     st.session_state.messages.append({"role":"user", "content":prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
     
-    client = OpenAI(api_key="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")
+    client = OpenAI(api_key=api_key)
     completion = client.chat.completions.create(
         model="gpt-4o",
         store=True,
