@@ -3,7 +3,7 @@ import pandas as pd
 
 st.title('통계 분석 페이지')
 
-uploaded_file = st.file_uploader('CSV 파일을 업로드하세요.', type=['csv'])
+uploaded_file = st.file_uploader('CSV 파일 업로드', type=['csv'])
 
 if uploaded_file is not None:
     try:
